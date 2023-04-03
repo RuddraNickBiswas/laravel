@@ -1,0 +1,76 @@
+users
+- id (primary key)
+- name
+- username (unique, nullable)
+- email (unique)
+- password
+- bios
+- profile_photo
+
+user_addresses
+- id (primary key)
+- user_id (foreign key to users table)
+- address 
+- visibility [a, p]
+
+user_social_media
+- id (primary key)
+- user_id (foreign key to users table)
+- social_media_name 
+- social_media_link
+- visibility [a, p]
+
+
+skill table
+- id (primary key)
+- skill_name
+- skill_type(des or dev)
+
+user_skills table
+- id (primary key)
+- user_id (foreign key to users table)
+- skill_id(foreign key to users table)
+- progress (percentage)
+
+
+
+help me make a apiSlice file trk query
+
+api is laravel api
+
+using on react js
+
+
+userSignUp = this will take few data and add user to database this will return token and that token will use for varification 
+
+userLogin = this will take few data and return user Token that will be help to authinticate
+
+getUser = this will return user data
+
+updateUser = this will help me update user database
+
+addUserAddress = this will add user address
+
+getUserAddress = this will get address
+
+
+updateUserAddress = this will update user address
+
+deleteUserAddress
+
+addSocialMediaLink = this function will help me to add social_media_link
+
+updateSocialMediaLink = update that social_media_link
+
+
+getSocialMediaLink = this will help me to update social_media_link
+
+deleteSocialMediaLink
+
+addUserSkills = this will add user user_skills
+
+getUserSkill = this will get user user_skills
+
+update user skill = this will help update user skill
+
+deleteSkills
