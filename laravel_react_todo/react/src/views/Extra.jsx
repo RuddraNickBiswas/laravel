@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useStateContext } from "../contexts/ContextProvider";
 import {
+    useAddSocialMediaLinkMutation,
     useGetSocialMediaLinkQuery,
     useGetUserSkillQuery,
 } from "../features/api/apiSlice";
@@ -10,14 +11,15 @@ import {
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const { data, error, isLoading } = useGetSocialMediaLinkQuery();
+    const [addslink, { data, error, isLoading }] =
+        useAddSocialMediaLinkMutation();
 
     const onSubmit = async (ev) => {
         ev.preventDefault();
-        const result = await getLogin({
-            id: "5",
-            address: "hey hey data",
-            visibility: "p",
+        const result = await addslink({
+            social_media_name: "tacec",
+            social_media_link: "https://www.facebook.com/myprofile",
+            visibility: "a",
         });
 
         if ("error" in result) {
@@ -113,9 +115,9 @@ export default function Login() {
                 <p>Error fetching address data</p>
             ) : (
                 <div>
-                      {/* {data.data.slink.slink.map((skill) => (
+                    {/* {data.data.map((skill) => (
                           <div key={skill.id}>
-                              <p>{skill.skill_name}</p>
+                              <p>{skill.social_media_link}</p>
                               <p>{skill.skill_type}</p>
                               <p>{skill.progress}</p>
                           </div>
