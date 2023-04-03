@@ -113,13 +113,13 @@ export default function Login() {
                 <p>Error fetching address data</p>
             ) : (
                 <div>
-                      {data.data.slink.slink.map((skill) => (
+                      {/* {data.data.slink.slink.map((skill) => (
                           <div key={skill.id}>
                               <p>{skill.skill_name}</p>
                               <p>{skill.skill_type}</p>
                               <p>{skill.progress}</p>
                           </div>
-                      ))}
+                      ))} */}
                 </div>
             )}
         </>
