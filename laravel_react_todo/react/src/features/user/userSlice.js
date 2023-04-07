@@ -27,6 +27,12 @@ export const userApiSlice = apiSlice.injectEndpoints({
             query: () => "/user",
             providesTags: ["User"],
         }),
+        getUserByUserId: builder.query({
+            query: (userId) => `/user/show/${userId}`,
+            providesTags: (result, error, userId) => [
+                { type: "User", id: userId },
+            ],
+        }),
         updateUser: builder.mutation({
             query: (userData) => ({
                 url: `/user/update/${userData.id}`,
@@ -46,6 +52,12 @@ export const userApiSlice = apiSlice.injectEndpoints({
         getUserAddress: builder.query({
             query: () => "/user/address",
             providesTags: ["Address"],
+        }),
+        getUserAddressByUserId: builder.query({
+            query: (userId) => `/user/address/${userId}`,
+            providesTags: (result, error, userId) => [
+                { type: "Address", id: userId },
+            ],
         }),
         updateUserAddress: builder.mutation({
             query: (addressData) => ({
@@ -74,6 +86,12 @@ export const userApiSlice = apiSlice.injectEndpoints({
             query: () => "/user/slink",
             providesTags: ["SocialMediaLink"],
         }),
+        getSocialMediaLinkByUserId: builder.query({
+            query: (userId) => `/user/slink/${userId}`,
+            providesTags: (result, error, userId) => [
+                { type: "Slink", id: userId },
+            ],
+        }),
         updateSocialMediaLink: builder.mutation({
             query: (socialMediaData) => ({
                 url: `/user/slink/${socialMediaData.id}`,
@@ -101,6 +119,12 @@ export const userApiSlice = apiSlice.injectEndpoints({
             query: () => "/user/skills",
             providesTags: ["Skill"],
         }),
+        getUserSkillByUserId: builder.query({
+            query: (userId) => `/user/skills/${userId}`,
+            providesTags: (result, error, userId) => [
+                { type: "Skill", id: userId },
+            ],
+        }),
         updateUserSkill: builder.mutation({
             query: (userSkillData) => ({
                 url: `/user/skills/${userSkillData.id}`,
@@ -121,20 +145,24 @@ export const {
     useUserSignUpMutation,
     useUserLoginMutation,
     useGetUserQuery,
+    useGetUserByUserIdQuery,
     useUpdateUserAddressMutation,
 
     useAddUserAddressMutation,
     useGetUserAddressQuery,
+    useGetUserAddressByUserIdQuery,
     useUpdateUserMutation,
     useDeleteUserAddressMutation,
 
     useAddSocialMediaLinkMutation,
     useGetSocialMediaLinkQuery,
+    useGetSocialMediaLinkByUserIdQuery,
     useUpdateSocialMediaLinkMutation,
     useDeleteSocialMediaLinkMutation,
 
     useAddUserSkillsMutation,
     useGetUserSkillQuery,
+    useGetUserSkillByUserIdQuery,
     useUpdateUserSkillMutation,
     useDeleteUserSkillMutation,
 } = userApiSlice;

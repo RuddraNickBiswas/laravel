@@ -7,21 +7,27 @@ import SkillProgress from "./SkillProgress";
 import SideBarLinks from "./SideBarLinks";
 
 import {
-    useAddSocialMediaLinkMutation,
+    useGetSocialMediaLinkByUserIdQuery,
     useGetSocialMediaLinkQuery,
-    useGetUserAddressQuery,
+    useGetUserAddressByUserIdQuery,
+    useGetUserByUserIdQuery,
     useGetUserQuery,
+    useGetUserSkillByUserIdQuery,
     useGetUserSkillQuery,
 } from "../features/user/userSlice";
 
 export default function RightSideBar() {
-    const { data: user, isLoading: userLoading } = useGetUserQuery();
-    const { data: skills, isLoading: skillsLoading } = useGetUserSkillQuery();
+    const { data: user, isLoading: userLoading } = useGetUserByUserIdQuery(2);
+    const { data: skills, isLoading: skillsLoading } =
+        useGetUserSkillByUserIdQuery(1);
     const { data: slink, isLoading: slinkLoading } =
-        useGetSocialMediaLinkQuery();
+        useGetSocialMediaLinkByUserIdQuery(4);
+
+    const { data: userAddress, isLoading: userAddressLoading } =
+        useGetUserAddressByUserIdQuery(4);
 
     {
-        skillsLoading ? "l" : console.log(skills.data);
+        userLoading ? "l" : console.log(user.user.name);
     }
     return (
         <Box
@@ -103,7 +109,11 @@ export default function RightSideBar() {
                     {skillsLoading
                         ? "loading"
                         : skills.data.map((skill) => (
-                              <SideBarPaper mt={1} key={skill.id} flex="column">
+                              <SideBarPaper
+                                  mt={1}
+                                  key={`${skill.id} ${skill.skill_name}`}
+                                  flex="column"
+                              >
                                   <SkillProgress
                                       name={skill.skill_name}
                                       value={skill.progress}
@@ -115,7 +125,11 @@ export default function RightSideBar() {
                     {slinkLoading
                         ? "loading"
                         : slink.data.map((slink) => (
-                              <SideBarPaper mt={1} key={slink} flex="row">
+                              <SideBarPaper
+                                  mt={1}
+                                  key={`${slink.id} ${slink.social_media_link}`}
+                                  flex="row"
+                              >
                                   <SideBarLinks
                                       link={slink.social_media_link}
                                       name={slink.social_media_name}

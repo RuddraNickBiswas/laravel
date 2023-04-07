@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserSocialMediaRequest;
 use App\Http\Requests\UpdateUserDetailsRequest;
 use App\Http\Resources\UserInformationResource;
+use App\Http\Resources\UserShowResource;
 use App\Http\Resources\UserSkillIndexResource;
 use App\Http\Resources\UserSocialMediaResource;
 use App\Models\Skills;
@@ -19,16 +20,16 @@ use PDO;
 class UserController extends Controller
 {
 
-    public function index($userId)
+    public function index()
     {
-        $user = User::where('id',$userId);
+        $user = auth()->user();
 
         return response([
             'user' => $user,
         ]);
     }
 
-   
+
     public function all()
     {
 
@@ -38,28 +39,38 @@ class UserController extends Controller
             'email' => "ruddra@gmail.com",
         ]);
     }
-  
+
+    public function show($userId)
+    {
+        $user = User::findOrFail($userId);
+
+        return response([
+            "user" => new UserShowResource($user),
+        ]);
+    }
+
     public function updateUserDetails(UpdateUserDetailsRequest $request)
     {
-       $userId = auth()->user()->id;
+        $userId = auth()->user()->id;
 
         $data = $request->validated();
 
-       User::where('id', $userId)->update([
-        'name' => $data['name'],
-        'username'=> $data['username'],
-        'bio' => $data['bio'],
-       ]);
+        User::where('id', $userId)->update([
+            'name' => $data['name'],
+            'username' => $data['username'],
+            'bio' => $data['bio'],
+        ]);
     }
 
     //GET
-    public function information(){
+    public function information()
+    {
         //Get User
         $user = auth()->user();
         //Get User Address
         $address = UserAddress::where('user_id', $user->id)->first()->address;
         //Get User Social Media Links
-        $socialMediaLinks = UserSocialMedia::where('user_id',$user->id)->get();
+        $socialMediaLinks = UserSocialMedia::where('user_id', $user->id)->get();
         //Get User Skills
         $userSkills = UserSkills::where('user_id', $user->id)->get();
 

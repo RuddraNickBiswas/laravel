@@ -12,13 +12,13 @@ class UserSocialMediaController extends Controller
   /**
    * Display a listing of the resource.
    */
-  public function index($userId)
+  public function index()
   {
-    // $userId = auth()->user()->id;
+    $userId = auth()->user()->id;
 
     $userSocialMedia = UserSocialMedia::where('user_id', $userId)->get();
 
-    return  UserSocialMediaResource::collection( $userSocialMedia);
+    return  UserSocialMediaResource::collection($userSocialMedia);
   }
 
 
@@ -47,18 +47,15 @@ class UserSocialMediaController extends Controller
   /**
    * Display the specified resource.
    */
-  public function show(UserSocialMedia $userSocialMedia)
+  public function show($userId)
   {
-    //
+
+    $userSocialMedia = UserSocialMedia::where('user_id', $userId)->get();
+
+    return  UserSocialMediaResource::collection($userSocialMedia);
   }
 
-  /**
-   * Show the form for editing the specified resource.
-   */
-  public function edit(UserSocialMedia $userSocialMedia)
-  {
-    //
-  }
+
 
   /**
    * Update the specified resource in storage.
@@ -78,9 +75,9 @@ class UserSocialMediaController extends Controller
 
     return response(
       [
-      'message' => 'Social Media Link Updated Successfully ',
+        'message' => 'Social Media Link Updated Successfully ',
       ]
-      );
+    );
   }
 
   /**

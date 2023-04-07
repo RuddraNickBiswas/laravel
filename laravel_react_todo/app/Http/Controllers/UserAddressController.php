@@ -13,10 +13,10 @@ class UserAddressController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($userId)
+    public function index()
     {
         
-        // $userId = auth()->user()->id;
+        $userId = auth()->user()->id;
 
         $userAddress = UserAddress::where('user_id', $userId )->get();
 
@@ -58,9 +58,13 @@ class UserAddressController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(UserAddress $userAddress)
+    public function show($userId)
     {
-        
+          $userAddress = UserAddress::where('user_id', $userId )->get();
+
+        return response(
+            UserAddressResource::collection($userAddress) 
+        );
     }
 
     /**

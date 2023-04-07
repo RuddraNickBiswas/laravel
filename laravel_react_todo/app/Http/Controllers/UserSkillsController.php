@@ -13,9 +13,9 @@ class UserSkillsController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index($userId)
+    public function index()
     {
-        // $userId = auth()->user()->id;
+        $userId = auth()->user()->id;
 
 
         $userSkills = UserSkills::where('user_id', $userId)->get();
@@ -33,7 +33,7 @@ class UserSkillsController extends Controller
         //         'progress' => $userSkill->progress,
         //     ];
         // }
-        
+
         return UserSkillIndexResource::collection($userSkills);
     }
 
@@ -69,9 +69,11 @@ class UserSkillsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(UserSkills $userSkills)
+    public function show($userId)
     {
-        //
+        $userSkills = UserSkills::where('user_id', $userId)->get();
+
+        return UserSkillIndexResource::collection($userSkills);
     }
 
     /**
@@ -81,7 +83,7 @@ class UserSkillsController extends Controller
     {
         $userId = auth()->user()->id;
 
-        $userSkill = UserSkills::where('user_id' , $userId)->where('id', $id )->firstOrFail();
+        $userSkill = UserSkills::where('user_id', $userId)->where('id', $id)->firstOrFail();
         $data = $request->validated();
         $userSkill->update([
             'skill_id' => $data['skill_id'],
