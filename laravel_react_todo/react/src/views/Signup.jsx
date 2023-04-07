@@ -3,7 +3,7 @@ import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { useState } from "react";
 import axiosClient from "../axios.js";
 import { useStateContext } from "../contexts/ContextProvider.jsx";
-import { useUserSignUpMutation } from "../features/api/apiSlice.js";
+import { useUserSignUpMutation } from "../features/user/userSlice.js";
 
 export default function Signup() {
     const { setCurrentUser, setUserToken } = useStateContext();

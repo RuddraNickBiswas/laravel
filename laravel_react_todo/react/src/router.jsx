@@ -5,42 +5,41 @@ import Dashboard from "./views/Dashboard";
 import Extra from "./views/Extra";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
-
+import DrawerMui from './views/TestMui'
 const router = createBrowserRouter([
     {
-        path: '/',
+        path: "/",
         element: <DefaultLayout />,
-        children:[
+        children: [
             {
-                path :'/dashboard',
-                element : <Navigate to='/'/>
+                path: "/dashboard",
+                element: <Navigate to="/" />,
             },
             {
-                path : '/',
-                element : <Dashboard />
-            }
-        ]
+                path: "/",
+                element: <Dashboard />,
+            },
+        ],
     },
     {
-        path : '/',
+        path: "/",
         element: <GuestLayout />,
-        children:[
+        children: [
             {
-                path: '/login',
+                path: "/login",
                 element: <Login />,
             },
 
             {
-                path : '/signup',
-                element: <Signup/>
+                path: "/signup",
+                element: <Signup />,
             },
             {
-                path : '/extra',
-                element: <Extra/>
-            }
-        ]
-    }
+                path: "/extra",
+                element: <DrawerMui/>,
+            },
+        ],
+    },
 ]);
-
 
 export default router;
