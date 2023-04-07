@@ -1,16 +1,17 @@
 import * as React from "react";
-import {Box} from "@mui/material";
-import Drawer from "@mui/material/Drawer";
+import { Box } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
-import DummyC from "../components/DummyC";
-import RightSideBar from '../components/RightSideBar'
+import RightSideBar from "../components/RightSideBar";
+
+
+import MyDrawer from "../components/MyDrawer";
 
 const drawerWidth = 340;
 
-export default function DrawerMui() {
+export default function UserHome() {
+
     return (
         <Box sx={{ display: "flex" }}>
             <AppBar
@@ -28,31 +29,14 @@ export default function DrawerMui() {
                     </Typography>
                 </Toolbar>
             </AppBar>
-            <Drawer
-            elevation={4}
-                sx={{
-                    width: drawerWidth,
-                    flexShrink: 0,
-                    "& .MuiDrawer-paper": {
-                        width: drawerWidth,
-                        boxSizing: "border-box",
-                        borderRight:'none',
-                        
-                    },
-
-                }}
-                variant="permanent"
-                anchor="left"
-            >
-                {/* <Toolbar /> */}
-                {/* <Divider /> */}
-                <RightSideBar/>
-            </Drawer>
+            <MyDrawer drawerWidth={drawerWidth}>
+                <RightSideBar />
+            </MyDrawer>
             <Box
                 component="main"
                 sx={{ flexGrow: 1, bgcolor: "background.default", p: 3 }}
             >
-             {/* <DummyC/> */}
+                {/* <DummyC/> */}
             </Box>
         </Box>
     );

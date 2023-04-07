@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreUserSocialMediaRequest;
 use App\Http\Requests\UpdateUserDetailsRequest;
 use App\Http\Resources\UserInformationResource;
+use App\Http\Resources\UserSkillIndexResource;
 use App\Http\Resources\UserSocialMediaResource;
 use App\Models\Skills;
 use App\Models\User;
@@ -18,12 +19,12 @@ use PDO;
 class UserController extends Controller
 {
 
-    public function index()
+    public function index($userId)
     {
-        $user = auth()->user();
+        $user = User::where('id',$userId);
 
         return response([
-            'data' => $user,
+            'user' => $user,
         ]);
     }
 
@@ -62,24 +63,24 @@ class UserController extends Controller
         //Get User Skills
         $userSkills = UserSkills::where('user_id', $user->id)->get();
 
-        $skills = [];
+        // $skills = [];
 
-        foreach ($userSkills as $userSkill) {
-            $skill = Skills::find($userSkill->skill_id);
+        // foreach ($userSkills as $userSkill) {
+        //     $skill = Skills::find($userSkill->skill_id);
 
-            $skills[] = [
-                'skill_name' => $skill->skill_name,
-                'skill_type' => $skill->skill_type,
-                'progress' => $userSkill->progress,
-            ];
-        }
+        //     $skills[] = [
+        //         'skill_name' => $skill->skill_name,
+        //         'skill_type' => $skill->skill_type,
+        //         'progress' => $userSkill->progress,
+        //     ];
+        // }
 
 
         return response([
             'user' => $user,
             'address' => $address,
             'social_media_link' =>  UserSocialMediaResource::collection($socialMediaLinks),
-            'skills' => $skills 
+            'skills' => UserSkillIndexResource::collection($userSkills)
         ]);
     }
 

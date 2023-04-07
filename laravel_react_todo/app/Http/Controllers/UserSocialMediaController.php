@@ -12,9 +12,9 @@ class UserSocialMediaController extends Controller
   /**
    * Display a listing of the resource.
    */
-  public function index()
+  public function index($userId)
   {
-    $userId = auth()->user()->id;
+    // $userId = auth()->user()->id;
 
     $userSocialMedia = UserSocialMedia::where('user_id', $userId)->get();
 

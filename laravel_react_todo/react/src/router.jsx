@@ -2,10 +2,9 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import DefaultLayout from "./components/DefaultLayout";
 import GuestLayout from "./components/GuestLayout";
 import Dashboard from "./views/Dashboard";
-import Extra from "./views/Extra";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
-import DrawerMui from './views/TestMui'
+import UserHome from "./views/UserHome";
 const router = createBrowserRouter([
     {
         path: "/",
@@ -36,7 +35,7 @@ const router = createBrowserRouter([
             },
             {
                 path: "/extra",
-                element: <DrawerMui/>,
+                element: <UserHome/>,
             },
         ],
     },

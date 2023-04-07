@@ -1,19 +1,28 @@
-import {
-    Avatar,
-    Box,
-    Typography,
-    Chip,
-} from "@mui/material";
+import { Avatar, Box, Typography, Chip } from "@mui/material";
 import React from "react";
 
 import FaceIcon from "@mui/icons-material/Face";
-import { red } from "@mui/material/colors";
 import SideBarPaper from "./SideBarPaper";
-import CustomizedProgressBars from "./SkillProgress";
 import SkillProgress from "./SkillProgress";
 import SideBarLinks from "./SideBarLinks";
 
-export default function RightSideBar({ rwidth }) {
+import {
+    useAddSocialMediaLinkMutation,
+    useGetSocialMediaLinkQuery,
+    useGetUserAddressQuery,
+    useGetUserQuery,
+    useGetUserSkillQuery,
+} from "../features/user/userSlice";
+
+export default function RightSideBar() {
+    const { data: user, isLoading: userLoading } = useGetUserQuery();
+    const { data: skills, isLoading: skillsLoading } = useGetUserSkillQuery();
+    const { data: slink, isLoading: slinkLoading } =
+        useGetSocialMediaLinkQuery();
+
+    {
+        skillsLoading ? "l" : console.log(skills.data);
+    }
     return (
         <Box
             sx={{
@@ -54,7 +63,7 @@ export default function RightSideBar({ rwidth }) {
                         }}
                     >
                         <Typography component="h2" variant="subtitle1">
-                            Ruddra Biswas
+                            {userLoading ? "loading...." : user.user.name}
                         </Typography>
                         <Typography
                             component="p"
@@ -62,45 +71,57 @@ export default function RightSideBar({ rwidth }) {
                             color="gray"
                             mb={1}
                         >
-                            biswasruddra100@gmail.com
+                            {userLoading ? "loading...." : user.user.email}
                         </Typography>
-                        <Box display="flex">
-                            <Chip
-                                size="small"
-                                icon={<FaceIcon />}
-                                label="With Icon"
-                            />
-                            <Chip
-                                size="small"
-                                icon={<FaceIcon />}
-                                label="With Icon"
-                                variant="outlined"
-                            />
-                        </Box>
+                        {userLoading ? (
+                            "loadding....."
+                        ) : (
+                            <Box display="flex">
+                                {user.user.type === "dev" ||
+                                user.user.type === "both" ? (
+                                    <Chip
+                                        size="small"
+                                        icon={<FaceIcon />}
+                                        label="Dev"
+                                    />
+                                ) : null}
+
+                                {user.user.type === "des" ||
+                                user.user.type === "both" ? (
+                                    <Chip
+                                        size="small"
+                                        icon={<FaceIcon />}
+                                        label="Des"
+                                    />
+                                ) : null}
+                            </Box>
+                        )}
                     </Box>
                 </SideBarPaper>
 
                 <Box mt={2} width="100%">
-                    <SideBarPaper mt={1} flex="column">
-                        <SkillProgress name="React" value="65" />
-                    </SideBarPaper>
-                    <SideBarPaper mt={1} flex="column">
-                        <SkillProgress name="React" value="65" />
-                    </SideBarPaper>
-                    <SideBarPaper mt={1} flex="column">
-                        <SkillProgress name="React" value="65" />
-                    </SideBarPaper>
+                    {skillsLoading
+                        ? "loading"
+                        : skills.data.map((skill) => (
+                              <SideBarPaper mt={1} key={skill.id} flex="column">
+                                  <SkillProgress
+                                      name={skill.skill_name}
+                                      value={skill.progress}
+                                  />
+                              </SideBarPaper>
+                          ))}
                 </Box>
                 <Box mt={2} width="100%">
-                    <SideBarPaper mt={1} flex="column">
-                        <SideBarLinks link={'https://github.com/recharts/recharts'}/>
-                    </SideBarPaper>
-                    <SideBarPaper mt={1} flex="column">
-                        <SideBarLinks link={'https://github.com/recharts/recharts'}/>
-                    </SideBarPaper>
-                    <SideBarPaper mt={1} flex="column">
-                        <SideBarLinks link={'https://github.com/recharts/recharts'}/>
-                    </SideBarPaper>
+                    {slinkLoading
+                        ? "loading"
+                        : slink.data.map((slink) => (
+                              <SideBarPaper mt={1} key={slink} flex="row">
+                                  <SideBarLinks
+                                      link={slink.social_media_link}
+                                      name={slink.social_media_name}
+                                  />
+                              </SideBarPaper>
+                          ))}
                 </Box>
             </Box>
         </Box>

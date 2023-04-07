@@ -13,10 +13,10 @@ class UserAddressController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index($userId)
     {
         
-        $userId = auth()->user()->id;
+        // $userId = auth()->user()->id;
 
         $userAddress = UserAddress::where('user_id', $userId )->get();
 
