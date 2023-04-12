@@ -1,5 +1,13 @@
-import { Avatar, Box, Typography, Chip } from "@mui/material";
-import React from "react";
+import {
+    Avatar,
+    Box,
+    Typography,
+    Chip,
+    Modal,
+    TextField,
+    Button,
+} from "@mui/material";
+import React, { useState } from "react";
 
 import FaceIcon from "@mui/icons-material/Face";
 import SideBarPaper from "./SideBarPaper";
@@ -8,27 +16,57 @@ import SideBarLinks from "./SideBarLinks";
 
 import {
     useGetSocialMediaLinkByUserIdQuery,
-    useGetSocialMediaLinkQuery,
     useGetUserAddressByUserIdQuery,
     useGetUserByUserIdQuery,
-    useGetUserQuery,
     useGetUserSkillByUserIdQuery,
-    useGetUserSkillQuery,
+    useUpdateUserMutation,
 } from "../features/user/userSlice";
 
-export default function RightSideBar() {
-    const { data: user, isLoading: userLoading } = useGetUserByUserIdQuery(2);
+export default function RightSideBar({ userId }) {
+    const [modelOpen, setModelOpen] = useState(false);
+    const handleModelOpen = () => setModelOpen(true);
+    const handleModelClose = () => setModelOpen(false);
+
+    
+    const style = {
+        position: "absolute",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        width: 400,
+        bgcolor: "background.paper",
+        border: 2,
+        boxShadow: 24,
+        p: 4,
+        borderRadius: 1,
+        borderColor: (theme) => theme.palette.primary.main,
+    };
+    const [updateUser, { isLoading }] = useUpdateUserMutation();
+    
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const data = new FormData(event.currentTarget);
+        const name = data.get("name");
+        const email = data.get("email");
+
+        try {
+            await updateUser({ name: name, email:email });
+        } catch (err) {
+            console.error("Failed to save the post", err);
+        }
+        handleModelClose()
+    };
+
+    const { data: user, isLoading: userLoading } =
+        useGetUserByUserIdQuery(userId);
     const { data: skills, isLoading: skillsLoading } =
-        useGetUserSkillByUserIdQuery(1);
+        useGetUserSkillByUserIdQuery(userId);
     const { data: slink, isLoading: slinkLoading } =
-        useGetSocialMediaLinkByUserIdQuery(4);
+        useGetSocialMediaLinkByUserIdQuery(userId);
 
     const { data: userAddress, isLoading: userAddressLoading } =
-        useGetUserAddressByUserIdQuery(4);
+        useGetUserAddressByUserIdQuery(userId);
 
-    {
-        userLoading ? "l" : console.log(user.user.name);
-    }
     return (
         <Box
             sx={{
@@ -47,7 +85,7 @@ export default function RightSideBar() {
                 }}
             >
                 <SideBarPaper flex="column">
-                    <Box>
+                    <Box onClick={handleModelOpen}>
                         <Avatar
                             sx={{
                                 width: "80px",
@@ -138,6 +176,51 @@ export default function RightSideBar() {
                           ))}
                 </Box>
             </Box>
+            <Modal
+                open={modelOpen}
+                onClose={handleModelClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box sx={style}>
+                    <Box
+                        component="form"
+                        onSubmit={handleSubmit}
+                        noValidate
+                        sx={{ mt: 1 }}
+                    >
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="name"
+                            label="Name"
+                            type="text"
+                            id="name"
+                            autoComplete="name"
+                        />
+                        <TextField
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Email Address"
+                            name="email"
+                            autoComplete="email"
+                            autoFocus
+                        />
+
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            sx={{ mt: 3, mb: 2 }}
+                        >
+                           Update
+                        </Button>
+                    </Box>
+                </Box>
+            </Modal>
         </Box>
     );
 }

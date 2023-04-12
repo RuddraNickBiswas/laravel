@@ -5,7 +5,7 @@ export const apiSlice = createApi({
     baseQuery: fetchBaseQuery({ 
         baseUrl: `${import.meta.env.VITE_API_BASE_URL}/api`,
         prepareHeaders:(headers) => {
-            const token = '47|MCuiPrdlAKHxlwmWhxmO5OxOGG3yZbS3aGlwb0S6';
+            const token = localStorage.getItem("TOKEN");
             if(token){
                 headers.set('Authorization', `Bearer ${token}`)
             }

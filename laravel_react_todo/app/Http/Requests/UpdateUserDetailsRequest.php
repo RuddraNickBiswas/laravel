@@ -23,8 +23,7 @@ class UpdateUserDetailsRequest extends FormRequest
     {
         return [
             'name' => 'required|string',
-            'username'=> 'required|string',
-            'bio' => 'required|string',           
+            'email'=> 'required|email',
         ];
     }
 }

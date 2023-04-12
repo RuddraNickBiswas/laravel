@@ -2,6 +2,7 @@ import { createBrowserRouter, Navigate } from "react-router-dom";
 import DefaultLayout from "./components/DefaultLayout";
 import GuestLayout from "./components/GuestLayout";
 import Dashboard from "./views/Dashboard";
+import ER from "./views/ER";
 import Login from "./views/Login";
 import Signup from "./views/Signup";
 import UserHome from "./views/UserHome";

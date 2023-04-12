@@ -57,8 +57,7 @@ class UserController extends Controller
 
         User::where('id', $userId)->update([
             'name' => $data['name'],
-            'username' => $data['username'],
-            'bio' => $data['bio'],
+            'email' => $data['email'],
         ]);
     }
 
