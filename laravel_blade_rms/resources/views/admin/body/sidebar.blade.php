@@ -12,22 +12,23 @@
      <!--navigation-->
      <ul class="metismenu" id="menu">
          <li>
-             <a href="javascript:;" class="has-arrow">
-                 <div class="parent-icon"><i class='bx bx-home-circle'></i>
+             <a href="{{ route('admin.profile') }}">
+                 <div class="parent-icon">
+                     <i class="lni lni-user"></i>
+
                  </div>
-                 <div class="menu-title">Dashboard</div>
+                 <div class="menu-title">User Profile</div>
+             </a>
+         </li>
+         <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon">
+                     <i class="lni lni-support"></i>
+                 </div>
+                 <div class="menu-title">TopBar Contact</div>
              </a>
              <ul>
-                 <li> <a href="index.html"><i class="bx bx-right-arrow-alt"></i>Default</a>
-                 </li>
-                 <li> <a href="dashboard-eCommerce.html"><i class="bx bx-right-arrow-alt"></i>eCommerce</a>
-                 </li>
-                 <li> <a href="dashboard-analytics.html"><i class="bx bx-right-arrow-alt"></i>Analytics</a>
-                 </li>
-                 <li> <a href="dashboard-digital-marketing.html"><i class="bx bx-right-arrow-alt"></i>Digital
-                         Marketing</a>
-                 </li>
-                 <li> <a href="dashboard-human-resources.html"><i class="bx bx-right-arrow-alt"></i>Human Resources</a>
+                 <li> <a href="{{route('fn.topbar.edit')}}"><i class="bx bx-right-arrow-alt"></i>Edit Top Bar</a>
                  </li>
              </ul>
          </li>
@@ -55,13 +56,7 @@
              </ul>
          </li>
          <li class="menu-label">UI Elements</li>
-         <li>
-             <a href="widgets.html">
-                 <div class="parent-icon"><i class='bx bx-cookie'></i>
-                 </div>
-                 <div class="menu-title">Widgets</div>
-             </a>
-         </li>
+
          <li>
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon"><i class='bx bx-cart'></i>

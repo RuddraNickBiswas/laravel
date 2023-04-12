@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TopBarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,6 +48,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/admin/profile', 'adminProfile')->name('admin.profile');
 
         Route::post('/admin/profile/store', 'adminProfileStore')->name('admin.profile.store');
+    });
+
+    Route::controller(TopBarController::class)->prefix('dashboard')->group(function(){
+
+        Route::get('/fn/topbar' ,'edit')->name('fn.topbar.edit');
+        Route::patch('/fn/topbar/{id}' ,'update')->name('fn.topbar.update');
     });
 });
 
