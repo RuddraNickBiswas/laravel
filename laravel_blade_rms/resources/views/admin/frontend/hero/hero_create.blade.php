@@ -11,21 +11,19 @@
 
                     <div class="card-body">
                         <div class="p-4 border rounded">
-                            <form method="POST" action="{{ route('fn.topbar.update', $topBar->id) }}">
+                            <form method="POST" action="{{ route('fn.hero.store') }}" enctype="multipart/form-data">
                                 @csrf
-                                @method('PATCH')
 
                                 <div class="form-group row mb-3">
-                                    <label for="phone" class="col-sm-2 col-form-label">
-                                        <h6>{{ __('Phone') }}</h6>
+                                    <label for="title" class="col-sm-2 col-form-label">
+                                        <h6>{{ __('Title') }}</h6>
                                     </label>
                                     <div class="col-sm-10">
-                                        <input id="phone" type="text"
-                                            class="form-control @error('phone') is-invalid @enderror" name="phone"
-                                            value="{{ old('phone', $topBar->phone) }}" required autocomplete="phone"
-                                            autofocus>
+                                        <input id="title" type="text"
+                                            class="form-control @error('title') is-invalid @enderror" name="title"
+                                            value="{{ old('title') }}" required autocomplete="title" autofocus>
 
-                                        @error('phone')
+                                        @error('title')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -34,16 +32,15 @@
                                 </div>
 
                                 <div class="form-group row mb-3">
-                                    <label for="open_hours" class="col-sm-2 col-form-label">
-                                        <h6>{{ __('Open Hours') }}</h6>
+                                    <label for="description" class="col-sm-2 col-form-label">
+                                        <h6>{{ __('Description') }}</h6>
                                     </label>
                                     <div class="col-sm-10">
-                                        <input id="open_hours" type="text"
-                                            class="form-control @error('open_hours') is-invalid @enderror" name="open_hours"
-                                            value="{{ old('open_hours', $topBar->open_hours) }}" required
-                                            autocomplete="open_hours" autofocus>
+                                        <textarea style="height: 100px;" id="description" type="text"
+                                            class="form-control @error('description') is-invalid @enderror" name="description" required
+                                            autocomplete="description" autofocus>{{ old('description') }}</textarea>
 
-                                        @error('open_hours')
+                                        @error('description')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
@@ -59,9 +56,9 @@
                                         <select id="visibility"
                                             class="form-control @error('visibility') is-invalid @enderror" name="visibility"
                                             required>
-                                            <option value="1" {{ $topBar->visibility ? 'selected' : '' }}>
+                                            <option value="1" selected>
                                                 {{ __('Visible') }}</option>
-                                            <option value="0" {{ !$topBar->visibility ? 'selected' : '' }}>
+                                            <option value="0">
                                                 {{ __('Hidden') }}</option>
                                         </select>
 
@@ -73,16 +70,46 @@
                                     </div>
                                 </div>
 
+                                <div class="form-group row mb-3">
+                                    <label for="bg_image" class="col-sm-2 col-form-label">
+                                        <h6>{{ __('Image') }}</h6>
+                                    </label>
+                                    <div class="col-sm-10">
+
+
+
+                                        <input name="bg_image" class="form-control  @error('bg_image') is-invalid @enderror"
+                                            type="file" id="image">
+                                        @error('bg_image')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+
+                                        <img id="showImage" class="rounded avatar-lg"
+                                            src="{{ !empty($heroSection->bg_image) ? url($heroSection->bg_image) : url('upload/no_image.jpg') }}"
+                                            alt="Card image cap" class="mt-10" height="100">
+
+                                    </div>
+
+                                    @error('bg_image')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror
+                                </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Update Topbar') }}
+                                        {{ __('Create Slider') }}
                                     </button>
                                 </div>
-                            </form>
                         </div>
+
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection

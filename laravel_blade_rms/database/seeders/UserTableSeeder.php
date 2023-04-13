@@ -18,7 +18,7 @@ class UserTableSeeder extends Seeder
         DB::table('users')->insert([
             'name' => "Admin",
             'username' => "admin",
-            'company' => 'ABC company',
+            'app_name' => 'Delicious',
             'email' => "admin@gmail.com", 'email_verified_at' => Carbon::now()->subDays(rand(1, 30)),
             'password' => Hash::make("12345678"),
         ]);

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class HeroSection extends Model
 {
     use HasFactory;
+    
+
+    protected $fillable =[
+        'title',
+        'description',
+        'bg_image',
+        'visibility'
+    ];
 }

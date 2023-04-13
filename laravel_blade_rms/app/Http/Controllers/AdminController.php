@@ -45,7 +45,7 @@ class AdminController extends Controller
         $data->name = $request->name;
         $data->username = $request->username;
         $data->email = $request->email;
-        $data->company = $request->company;
+        $data->app_name = $request->app_name;
 
         if ($request->file('photo')) {
             $file = $request->file('photo');

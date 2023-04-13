@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TopBarController;
@@ -55,6 +56,25 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/fn/topbar' ,'edit')->name('fn.topbar.edit');
         Route::patch('/fn/topbar/{id}' ,'update')->name('fn.topbar.update');
     });
+
+
+    Route::controller(HeroSectionController::class)->prefix('dashboard')->group(function(){
+
+
+
+        Route::get('/fn/hero' ,'show')->name('fn.hero.show');
+
+        Route::get('/fn/hero/create' ,'create')->name('fn.hero.create');
+
+        Route::post('/fn/hero/store' ,'store')->name('fn.hero.store');
+        
+        Route::get('/fn/hero/edit/{id}' ,'edit')->name('fn.hero.edit');
+
+        Route::patch('/fn/hero/update/{id}' ,'update')->name('fn.hero.update');
+
+        Route::delete('/fn/hero/delete/{id}' ,'destroy')->name('fn.hero.delete');
+    });
+
 });
 
 Route::controller(AdminController::class)->group(function () {
@@ -63,6 +83,7 @@ Route::controller(AdminController::class)->group(function () {
     
     Route::get('admin/register', 'register')->name('admin.register');
 });
+
 
 Route::get('/' ,[HomeController::class, 'index'])->name('home');
 

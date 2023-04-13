@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('hero_sections', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('description');
+            $table->string('bg_image');
+            $table->boolean('visibility')->default(true);
             $table->timestamps();
         });
     }

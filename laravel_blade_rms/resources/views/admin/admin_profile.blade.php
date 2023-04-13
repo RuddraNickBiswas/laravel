@@ -102,11 +102,11 @@
                                     </div>
                                     <div class="row mb-3">
                                         <div class="col-sm-3">
-                                            <h6 class="mb-0">Company </h6>
+                                            <h6 class="mb-0">App Name </h6>
                                         </div>
                                         <div class="col-sm-9 text-secondary">
-                                            <input type="text" name="company" class="form-control"
-                                                value="{{ $adminData->company }}" />
+                                            <input type="text" name="app_name" class="form-control"
+                                                value="{{ $adminData->app_name }}" />
                                         </div>
                                     </div>
 
