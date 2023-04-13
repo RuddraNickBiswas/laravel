@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\HomeController;
@@ -54,6 +55,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::controller(TopBarController::class)->prefix('dashboard')->group(function(){
 
         Route::get('/fn/topbar' ,'edit')->name('fn.topbar.edit');
+
         Route::patch('/fn/topbar/{id}' ,'update')->name('fn.topbar.update');
     });
 
@@ -75,6 +77,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::delete('/fn/hero/delete/{id}' ,'destroy')->name('fn.hero.delete');
     });
 
+
+    Route::controller(AboutSectionController::class)->prefix('dashboard')->group(function(){
+
+        Route::get('/fn/about' ,'edit')->name('fn.about.edit');
+
+        Route::patch('/fn/about/{id}' ,'update')->name('fn.about.update');
+    });
 });
 
 Route::controller(AdminController::class)->group(function () {

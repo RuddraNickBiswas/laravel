@@ -26,8 +26,7 @@
                                         <td class="d-flex align-items-center">
                                             <a href="{{ route('fn.hero.edit', $section->id) }}" class="btn btn-info mr-4"><i
                                                     class="fadeIn animated bx bx-edit-alt"></i></a>
-
-<div class="p-1"></div>
+                                            <div class="p-1"></div>
                                             <form action="{{ route('fn.hero.delete', $section->id) }}" method="POST">
                                                 @csrf
                                                 @method('DELETE')
