@@ -2,9 +2,14 @@
 
 use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EventSectionTitleController;
 use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MenuItemsController;
+use App\Http\Controllers\MenuSectionTitleController;
+use App\Http\Controllers\MenuTypeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SpecialSectionTitleController;
 use App\Http\Controllers\TopBarController;
 use App\Http\Controllers\WhyUsSectionController;
 use App\Http\Controllers\WhyUsSectionTitleController;
@@ -102,6 +107,65 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::get('/fn/why_us/{id}', 'edit')->name('fn.why_us.edit');
 
         Route::patch('/fn/why_us/{id}', 'update')->name('fn.why_us.update');
+    });
+
+
+
+    Route::controller(MenuSectionTitleController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/menu_title', 'edit')->name('fn.menu_title.edit');
+
+        Route::patch('/fn/menu_title/{id}', 'update')->name('fn.menu_title.update');
+    });
+
+    Route::controller(MenuTypeController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/menu_type', 'index')->name('fn.menu_type');
+
+        Route::get('/fn/menu_type/create', 'create')->name('fn.menu_type.create');
+
+        Route::post('/fn/menu_type/store', 'store')->name('fn.menu_type.store');
+
+        Route::get('/fn/menu_type/{id}', 'edit')->name('fn.menu_type.edit');
+
+        Route::patch('/fn/menu_type/{id}', 'update')->name('fn.menu_type.update');
+
+        Route::delete('/fn/menu_type/{id}', 'destroy')->name('fn.menu_type.delete');
+    });
+
+    Route::controller(MenuItemsController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/menu_item', 'index')->name('fn.menu_item');
+
+        Route::get('/fn/menu_item/create', 'create')->name('fn.menu_item.create');
+
+        Route::post('/fn/menu_item/store', 'store')->name('fn.menu_item.store');
+
+        Route::get('/fn/menu_item/{id}', 'edit')->name('fn.menu_item.edit');
+
+        Route::patch('/fn/menu_item/{id}', 'update')->name('fn.menu_item.update');
+
+        Route::delete('/fn/menu_item/{id}', 'destroy')->name('fn.menu_item.delete');
+    });
+
+
+
+    Route::controller(SpecialSectionTitleController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/sepcial', 'edit')->name('fn.special_title.edit');
+
+        Route::patch('/fn/special/{id}', 'update')->name('fn.special_title.update');
+    });
+
+
+
+
+
+    Route::controller(EventSectionTitleController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/event', 'edit')->name('fn.event_title.edit');
+
+        Route::patch('/fn/event/{id}', 'update')->name('fn.event_title.update');
     });
 });
 

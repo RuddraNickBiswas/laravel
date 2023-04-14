@@ -28,6 +28,7 @@
     {{-- Toster CSS --}}
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
+    
 
     <title>Admin Dashboard</title>
 </head>
@@ -112,20 +113,18 @@
         @endif
     </script>
 
-{{-- Image Shower Function --}}
-<script type="text/javascript">
-    
-    $(document).ready(function(){
-        $('#image').change(function(e){
-            var reader = new FileReader();
-            reader.onload = function(e){
-                $('#showImage').attr('src',e.target.result);
-            }
-            reader.readAsDataURL(e.target.files['0']);
+    {{-- Image Shower Function --}}
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#image').change(function(e) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    $('#showImage').attr('src', e.target.result);
+                }
+                reader.readAsDataURL(e.target.files['0']);
+            });
         });
-    });
-
-</script>
+    </script>
 </body>
 
 </html>

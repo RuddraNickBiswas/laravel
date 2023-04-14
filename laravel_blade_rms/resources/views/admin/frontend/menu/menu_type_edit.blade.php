@@ -1,0 +1,72 @@
+@extends('admin.admin_dashboard')
+
+@section('admin')
+    <div class="m-4">
+        <div class="row">
+            <div class="col-md-12 mt-4">
+                <h6 class="mb-0 text-uppercase">Edit Menu Types</h6>
+                <hr>
+                <div class="card border rounded">
+                    <div class="card-body">
+                        <div class="p-4 border rounded">
+                            <form method="POST" action="{{ route('fn.menu_type.update', $menuType->id) }}" ">
+                                @csrf
+                                @method('PATCH')
+                                <div class="form-group row mb-3">
+                                    <label for="name" class="col-sm-2 col-form-label">
+                                        <h6>{{ __('Name') }}</h6>
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <input id="name" type="text"
+                                            class="form-control @error('name') is-invalid @enderror" name="name"
+                                            value="{{ old('name', $menuType->name) }}" required autocomplete="name" autofocus>
+
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                             
+
+                       
+
+                                  <div class="form-group row mb-3">
+                                    <label for="visibility" class="col-sm-2 col-form-label">
+                                        <h6>{{ __('Visibility') }}</h6>
+                                    </label>
+                                    <div class="col-sm-10">
+                                        <select id="visibility"
+                                            class="form-control @error('visibility') is-invalid @enderror" name="visibility"
+                                            required>
+                                            <option value="1" {{ $menuType->visibility ? 'selected' : '' }}>
+                                                {{ __('Visible') }}</option>
+                                            <option value="0" {{ !$menuType->visibility ? 'selected' : '' }}>
+                                                {{ __('Hidden') }}</option>
+                                        </select>
+
+                                        @error('visibility')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary">
+                                        {{ __('Create Menu Types') }}
+                                    </button>
+                                </div>
+                        </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+@endsection

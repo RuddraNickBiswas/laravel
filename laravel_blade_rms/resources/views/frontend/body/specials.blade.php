@@ -1,8 +1,11 @@
+@php
+    $specialSectionTitle = App\Models\SpecialSectionTitle::find(1);
+@endphp
 <section id="specials" class="specials">
     <div class="container">
 
         <div class="section-title">
-            <h2>Check our <span>Specials</span></h2>
+            <h2>{{$specialSectionTitle->title_first}}<span>  {{$specialSectionTitle->title_last}}</span></h2>
             <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
                 vitae autem.</p>
         </div>

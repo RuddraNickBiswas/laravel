@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use App\Models\EventSectionTitle;
 use App\Models\MenuItems;
 use Illuminate\Database\Seeder;
 
@@ -30,6 +31,13 @@ class DatabaseSeeder extends Seeder
         $this->call(MenuTypeSeeder::class);
         $this->call(MenuItemsSeeder::class);
         
+
+        $this->call(SpecialSectionTitleSeeder::class);
+
+
+
+
+        $this->call(EventSectionTitleSeeder::class);
         
     }
 }

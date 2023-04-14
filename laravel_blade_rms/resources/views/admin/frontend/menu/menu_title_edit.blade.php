@@ -11,7 +11,7 @@
 
                     <div class="card-body">
                         <div class="p-4 border rounded">
-                            <form method="POST" action="{{ route('fn.why_us_title.update', $whyUsTitle->id) }}"
+                            <form method="POST" action="{{ route('fn.menu_title.update', $menuTitle->id) }}"
                                 enctype="multipart/form-data">
                                 @csrf
                                 @method('PATCH')
@@ -23,7 +23,7 @@
                                     <div class="col-sm-10">
                                         <input id="title" type="text"
                                             class="form-control @error('title') is-invalid @enderror" name="title"
-                                            value="{{ old('title', $whyUsTitle->title) }}" required autocomplete="title"
+                                            value="{{ old('title', $menuTitle->title) }}" required autocomplete="title"
                                             autofocus>
 
                                         @error('title')
@@ -41,7 +41,7 @@
                                     <div class="col-sm-10">
                                         <input id="title_colored" type="text"
                                             class="form-control @error('title_colored') is-invalid @enderror" name="title_colored"
-                                            value="{{ old('title_colored', $whyUsTitle->title_colored) }}" required autocomplete="title_colored"
+                                            value="{{ old('title_colored', $menuTitle->title_colored) }}" required autocomplete="title_colored"
                                             autofocus>
 
                                         @error('title_colored')
@@ -52,28 +52,10 @@
                                     </div>
                                 </div>
 
-
-                                <div class="form-group row mb-3">
-                                    <label for="description" class="col-sm-2 col-form-label">
-                                        <h6>{{ __('Description') }}</h6>
-                                    </label>
-                                    <div class="col-sm-10">
-                                        <textarea style="height: 100px" id="description" type="text"
-                                            class="form-control @error('description') is-invalid @enderror" name="description" required autofocus>{{ old('description', $whyUsTitle->description) }}</textarea>
-
-                                        @error('description')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                </div>
-
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Update Why Us Title') }}
-                                    </button>
-                                </div>
+                                        {{ __('Update Menu Main Title') }}
+                                    </button>                                </div>
                         </div>
 
                         </form>

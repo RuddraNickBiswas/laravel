@@ -1,8 +1,11 @@
+ @php
+    $eventSectionTitle = App\Models\EventSectionTitle::find(1);
+@endphp
  <section id="events" class="events">
      <div class="container">
 
          <div class="section-title">
-             <h2>Organize Your <span>Events</span> in our Restaurant</h2>
+             <h2>{{$eventSectionTitle->title_first}}<span>  {{$eventSectionTitle->title_first}}</span>  {{$eventSectionTitle->title_middle}}</h2>
          </div>
 
          <div class="events-slider swiper">
