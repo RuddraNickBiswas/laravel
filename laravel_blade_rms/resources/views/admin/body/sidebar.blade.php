@@ -53,6 +53,20 @@
              </a>
          </li>
 
+         <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon">
+                     <i class="fadeIn animated bx bx-comment-check"></i>
+                 </div>
+                 <div class="menu-title">Why Us Section</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('fn.why_us_title.edit') }}"><i class="bx bx-right-arrow-alt"></i>Title Edit</a>
+                 </li>
+                 <li> <a href="{{ route('fn.why_us') }}"><i class="bx bx-right-arrow-alt"></i>Why Us table</a>
+                 </li>
+             </ul>
+         </li>
 
      </ul>
      <!--end navigation-->

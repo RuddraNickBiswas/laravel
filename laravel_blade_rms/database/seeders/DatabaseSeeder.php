@@ -18,6 +18,10 @@ class DatabaseSeeder extends Seeder
         $this->call(TopBarSeeder::class);
         $this->call(HeroSectionSeeder::class);
         $this->call(AboutSectionSeeder::class);
+
+
+        $this->call(WhyUsSectionTitleSeeder::class);
+        $this->call(WhyUsSectionSeeder::class);
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',

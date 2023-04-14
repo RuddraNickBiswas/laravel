@@ -1,32 +1,35 @@
+@php
+    use App\Models\WhyUsSectionTitle;
+
+
+    use App\Models\WhyUsSection;
+    
+    $whyUsSectionTitle = WhyUsSectionTitle::find(1);
+
+
+    $whyUsSection = WhyUsSection::where('visibility', true)->get();
+
+
+@endphp
 <section id="why-us" class="why-us">
     <div class="container">
         <div class="section-title">
-            <h2>Why choose <span>Our Restaurant</span></h2>
-            <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque
-                vitae autem.</p>
+            <h2>{{$whyUsSectionTitle->title}}<span>{{$whyUsSectionTitle->title_colored}}</span></h2>
+            <p>{{$whyUsSectionTitle->description}}</p>
         </div>
-        <div class="row">
-            <div class="col-lg-4">
-                <div class="box"> <span>01</span>
-                    <h4>Lorem Ipsum</h4>
-                    <p>Ulamco laboris nisi ut aliquip ex ea commodo consequat. Et consectetur ducimus vero placeat
-                    </p>
+
+
+         <div class="row">
+            @foreach($whyUsSection as $index => $item)
+                <div class="col-lg-4 mt-4">
+                    <div class="box">
+                        <span>{{ str_pad($index+1, 2, '0', STR_PAD_LEFT) }}</span>
+                        <h4>{{ $item->title }}</h4>
+                        <p>{{ $item->description }}</p>
+                    </div>
                 </div>
-            </div>
-            <div class="col-lg-4 mt-4 mt-lg-0">
-                <div class="box"> <span>02</span>
-                    <h4>Repellat Nihil</h4>
-                    <p>Dolorem est fugiat occaecati voluptate velit esse. Dicta veritatis dolor quod et vel dire
-                        leno para dest</p>
-                </div>
-            </div>
-            <div class="col-lg-4 mt-4 mt-lg-0">
-                <div class="box"> <span>03</span>
-                    <h4> Ad ad velit qui</h4>
-                    <p>Molestiae officiis omnis illo asperiores. Aut doloribus vitae sunt debitis quo vel nam quis
-                    </p>
-                </div>
-            </div>
+            @endforeach
         </div>
+
     </div>
 </section>
