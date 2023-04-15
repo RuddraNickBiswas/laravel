@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\HeroSectionStoreRequest;
 use App\Http\Requests\HeroSectionUpdateRequest;
 use App\Models\HeroSection;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use Image;
+use Intervention\Image\Facades\Image;
 
 class HeroSectionController extends Controller
 {
@@ -100,21 +99,21 @@ class HeroSectionController extends Controller
     }
 
 
-    public function destroy($id){
-         $heroSection = HeroSection::find($id);
+    public function destroy($id)
+    {
+        $heroSection = HeroSection::find($id);
 
-         if($heroSection->bg_image) {
+        if ($heroSection->bg_image) {
             Storage::disk('appPublic')->delete($heroSection->bg_image); // delete image file
-         }
+        }
 
- $heroSection->delete(); // delete record
+        $heroSection->delete(); // delete record
 
-   $notification = array(
-        'message' => 'Hero Slider Deleted Successfully',
-        'alert-type' => 'success'
-    );
+        $notification = array(
+            'message' => 'Hero Slider Deleted Successfully',
+            'alert-type' => 'success'
+        );
 
-    return redirect()->route('fn.hero.show')->with($notification);
-
+        return redirect()->route('fn.hero.show')->with($notification);
     }
 }

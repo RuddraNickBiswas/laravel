@@ -16,6 +16,7 @@ class SpecialSectionTitleSeeder extends Seeder
          SpecialSectionTitle::insert([
            'title_first' => 'Check our', 
            'title_last' => 'Specials',
+           'description' => 'Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.',
         ]);
     }
 }

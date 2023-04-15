@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('special_sections', function (Blueprint $table) {
             $table->id();
+            $table->string('tab_name');
+            $table->string('title');
+            $table->string('title_italic');
+            $table->text('description');
+            $table->string('image');
+            $table->boolean('visibility')->default(true);
             $table->timestamps();
         });
     }

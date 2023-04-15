@@ -33,6 +33,7 @@ class DatabaseSeeder extends Seeder
         
 
         $this->call(SpecialSectionTitleSeeder::class);
+        $this->call(SpecialSectionSeeder::class);
 
 
 

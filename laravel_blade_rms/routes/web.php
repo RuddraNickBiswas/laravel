@@ -9,6 +9,7 @@ use App\Http\Controllers\MenuItemsController;
 use App\Http\Controllers\MenuSectionTitleController;
 use App\Http\Controllers\MenuTypeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SpecialSectionController;
 use App\Http\Controllers\SpecialSectionTitleController;
 use App\Http\Controllers\TopBarController;
 use App\Http\Controllers\WhyUsSectionController;
@@ -152,13 +153,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(SpecialSectionTitleController::class)->prefix('dashboard')->group(function () {
 
-        Route::get('/fn/sepcial', 'edit')->name('fn.special_title.edit');
+        Route::get('/fn/sepcial/title', 'edit')->name('fn.special_title.edit');
 
-        Route::patch('/fn/special/{id}', 'update')->name('fn.special_title.update');
+        Route::patch('/fn/special/title/{id}', 'update')->name('fn.special_title.update');
     });
 
 
+    Route::prefix('dashboard/fn')->name('fn.')->group(function () {
 
+        Route::resource('special', SpecialSectionController::class);
+    });
 
 
     Route::controller(EventSectionTitleController::class)->prefix('dashboard')->group(function () {

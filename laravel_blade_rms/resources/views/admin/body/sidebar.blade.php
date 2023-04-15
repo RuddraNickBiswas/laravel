@@ -107,11 +107,10 @@
                  <li> <a href="{{ route('fn.special_title.edit') }}"><i class="bx bx-right-arrow-alt"></i>main title
                          edit</a>
                  </li>
-                 <li> <a href="{{ route('fn.menu_type') }}"><i class="bx bx-right-arrow-alt"></i>menu type</a>
+                 <li> <a href="{{ route('fn.special.index') }}"><i class="bx bx-right-arrow-alt"></i>special all</a>
                  </li>
 
-                 <li> <a href="{{ route('fn.menu_type.create') }}"><i class="bx bx-right-arrow-alt"></i>menu type
-                         create</a>
+                 <li> <a href="{{ route('fn.special.create') }}"><i class="bx bx-right-arrow-alt"></i>special create</a>
                  </li>
 
                  <li> <a href="{{ route('fn.menu_item') }}"><i class="bx bx-right-arrow-alt"></i>menu items</a>

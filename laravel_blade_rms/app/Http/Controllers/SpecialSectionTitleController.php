@@ -24,11 +24,13 @@ class SpecialSectionTitleController extends Controller
         $request->validate([
             'title_first' => 'required|string|max:255',
             'title_last' => 'required|string|max:255',
+            'description' => 'required|string|max:255',
             'visibility' => 'required|boolean',
         ]);
         $specialSectionTitle->update([
             'title_first' => $request->title_first,
             'title_last' => $request->title_last,
+            'description' => $request->description,
             'visibility' => $request->visibility,
         ]);
         $notification = array(

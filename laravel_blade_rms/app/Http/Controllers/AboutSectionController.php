@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\UpdateAboutSectionRequest;
 use App\Models\AboutSection;
 use Illuminate\Support\Facades\Storage;
-use Image;
+use Intervention\Image\Facades\Image;
 
 class AboutSectionController extends Controller
 {
@@ -53,7 +53,7 @@ class AboutSectionController extends Controller
             'visibility' => $request->visibility,
             'image' => $imagePath,
         ]);
-$notification = array(
+        $notification = array(
             'message' => 'About Section Update Success',
             'alert-type' => 'success'
         );
