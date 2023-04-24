@@ -28,7 +28,7 @@
                                  <p class="fst-italic"> {{ $event->description_top }} </p>
                                  <ul>
                                      <li><i class="bi bi-check-circle"></i> {{ $event->point_1 }} </li>
-                                     <li><i class="bi bi-check-circle"></i> {{ $event->poind_2 }} </li>
+                                     <li><i class="bi bi-check-circle"></i> {{ $event->point_2 }} </li>
                                      <li><i class="bi bi-check-circle"></i> {{ $event->point_3 }} </li>
                                  </ul>
                                  <p> {{ $event->description_bottom }} </p>

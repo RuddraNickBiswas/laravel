@@ -135,20 +135,35 @@
                  <li> <a href="{{ route('fn.event_title.edit') }}"><i class="bx bx-right-arrow-alt"></i>main title
                          edit</a>
                  </li>
-                 <li> <a href="{{ route('fn.menu_type') }}"><i class="bx bx-right-arrow-alt"></i>menu type</a>
+                 <li> <a href="{{ route('fn.event.index') }}"><i class="bx bx-right-arrow-alt"></i>all events</a>
                  </li>
 
-                 <li> <a href="{{ route('fn.menu_type.create') }}"><i class="bx bx-right-arrow-alt"></i>menu type
+                 <li> <a href="{{ route('fn.event.create') }}"><i class="bx bx-right-arrow-alt"></i> event
                          create</a>
-                 </li>
-
-                 <li> <a href="{{ route('fn.menu_item') }}"><i class="bx bx-right-arrow-alt"></i>menu items</a>
-                 </li>
-                 <li> <a href="{{ route('fn.menu_item.create') }}"><i class="bx bx-right-arrow-alt"></i>create menu
-                         items</a>
                  </li>
              </ul>
          </li>
+
+         <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon">
+                     <i class="fadeIn animated bx bx-calendar-star"></i>
+                 </div>
+                 <div class="menu-title">gallery section</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('fn.event_title.edit') }}"><i class="bx bx-right-arrow-alt"></i>main title
+                         edit</a>
+                 </li>
+                 <li> <a href="{{ route('fn.event.index') }}"><i class="bx bx-right-arrow-alt"></i>all events</a>
+                 </li>
+
+                 <li> <a href="{{ route('fn.event.create') }}"><i class="bx bx-right-arrow-alt"></i> event
+                         create</a>
+                 </li>
+             </ul>
+         </li>
+
      </ul>
      <!--end navigation-->
  </div>

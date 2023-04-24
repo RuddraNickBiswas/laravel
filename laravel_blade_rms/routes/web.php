@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EventSectionController;
 use App\Http\Controllers\EventSectionTitleController;
+use App\Http\Controllers\GallerySectionTitleController;
 use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuItemsController;
@@ -167,9 +169,24 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::controller(EventSectionTitleController::class)->prefix('dashboard')->group(function () {
 
-        Route::get('/fn/event', 'edit')->name('fn.event_title.edit');
+        Route::get('/fn/event/title', 'edit')->name('fn.event_title.edit');
 
-        Route::patch('/fn/event/{id}', 'update')->name('fn.event_title.update');
+        Route::patch('/fn/event/title/{id}', 'update')->name('fn.event_title.update');
+    });
+
+
+    Route::prefix('dashboard/fn')->name('fn.')->group(function () {
+
+        Route::resource('event', EventSectionController::class);
+    });
+
+
+
+    Route::controller(GallerySectionTitleController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/gallery/title', 'edit')->name('fn.gallery_title.edit');
+
+        Route::patch('/fn/gallery/title/{id}', 'update')->name('fn.gallery_title.update');
     });
 });
 

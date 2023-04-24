@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('point_3');
             $table->text('description_bottom');
             $table->string('image');
+            $table->boolean('visibility')->default(true);
             $table->timestamps();
         });
     }
