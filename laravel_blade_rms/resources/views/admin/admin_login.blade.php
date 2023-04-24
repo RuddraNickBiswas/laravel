@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--favicon-->
-    <link rel="icon" href="{{ asset('backend/assets/images/favicon-32x32.png') }}" type="image/png" />
+    <link rel="icon" href="{{ asset('logo/logo.png') }}" type="image/png" />
     <!--plugins-->
     <link href="{{ asset('backend/assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
@@ -18,7 +18,7 @@
     <link href="{{ asset('backend/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('backend/assets/css/icons.css') }}" rel="stylesheet">
-    <title>Rukada - Responsive Bootstrap 5 Admin Template</title>
+    <title>Admin Login</title>
 </head>
 
 <body class="bg-login">
@@ -29,7 +29,7 @@
                 <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
                     <div class="col mx-auto">
                         <div class="mb-4 text-center">
-                            <img src="{{ asset('backend/assets/images/logo-img.png') }}" width="180"
+                            <img src="{{ asset('logo/logo.png') }}" width="180"
                                 alt="" />
                         </div>
                         <div class="card">

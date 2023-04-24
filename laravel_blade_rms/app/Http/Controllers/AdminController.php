@@ -15,7 +15,10 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.index');
+        $id = Auth::user()->id;
+
+        $adminData = User::find($id);
+        return view('admin.admin_profile', compact('adminData'));
     }
 
     public function login()

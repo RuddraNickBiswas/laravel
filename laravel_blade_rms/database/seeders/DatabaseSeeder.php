@@ -39,6 +39,7 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(EventSectionTitleSeeder::class);
+        $this->call(EventSectionSeeder::class);
         
     }
 }

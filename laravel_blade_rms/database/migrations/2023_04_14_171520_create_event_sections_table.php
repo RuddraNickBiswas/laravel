@@ -13,6 +13,14 @@ return new class extends Migration
     {
         Schema::create('event_sections', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->integer('price');
+            $table->text('description_top');
+            $table->string('point_1');
+            $table->string('point_2');
+            $table->string('point_3');
+            $table->text('description_bottom');
+            $table->string('image');
             $table->timestamps();
         });
     }
