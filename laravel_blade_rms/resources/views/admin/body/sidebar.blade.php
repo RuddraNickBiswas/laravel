@@ -203,7 +203,28 @@
                  </li>
              </ul>
          </li>
-
+         
+         <li>
+                 <a href="javascript:;" class="has-arrow">
+                     <div class="parent-icon">
+                         <i class="fadeIn animated bx bx-calendar-star"></i>
+                     </div>
+                     <div class="menu-title">contact section</div>
+                 </a>
+                 <ul>
+                     <li> <a href="{{ route('fn.contact_title.edit') }}"><i class="bx bx-right-arrow-alt"></i>main title
+                             edit</a>
+                     </li>
+                     <li> <a href="{{ route('fn.contact.index') }}"><i class="bx bx-right-arrow-alt"></i>all contacts</a>
+                     </li>
+    
+                     <li> <a href="{{ route('fn.contact.create') }}"><i class="bx bx-right-arrow-alt"></i> contact
+                             create</a>
+                     </li>
+                 </ul>
+             </li>
      </ul>
+
+
      <!--end navigation-->
  </div>

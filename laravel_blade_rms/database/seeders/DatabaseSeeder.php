@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Chefs;
+use App\Models\ContactSectionTitle;
 use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
 
@@ -52,5 +53,10 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(TestimonialSeeder::class);
+
+
+
+        $this->call(ContactSectionTitleSeeder::class);
+        $this->call(ContactSectionSeeder::class);
     }
 }

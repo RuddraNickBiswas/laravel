@@ -4,6 +4,8 @@ use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ChefsController;
 use App\Http\Controllers\ChefsSectionTitleController;
+use App\Http\Controllers\ContactSectionController;
+use App\Http\Controllers\ContactSectionTitleController;
 use App\Http\Controllers\EventSectionController;
 use App\Http\Controllers\EventSectionTitleController;
 use App\Http\Controllers\GallerySectionController;
@@ -241,6 +243,24 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     // END TESTIMONIAL
+
+
+    // CONTACT SECTION
+
+    Route::controller(ContactSectionTitleController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/contact/title', 'edit')->name('fn.contact_title.edit');
+
+        Route::patch('/fn/contact/title/{id}', 'update')->name('fn.contact_title.update');
+    });
+
+
+Route::prefix('dashboard/fn')->name('fn.')->group(function () {
+
+        Route::resource('contact', ContactSectionController::class);
+    });
+
+    // END CONTACT SECTION
 
 });
 
