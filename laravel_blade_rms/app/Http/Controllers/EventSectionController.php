@@ -129,8 +129,23 @@ class EventSectionController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(EventSection $eventSection)
+    public function destroy($id)
     {
-        //
+        $event = EventSection::findOrFail($id);
+
+
+        if ($event->image) {
+            Storage::disk('appPublic')->delete($event->image);
+        }
+
+        $event->delete();
+
+
+        $notification = array(
+            'message' => 'Event Section deleted successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('fn.event.index')->with($notification);
     }
 }

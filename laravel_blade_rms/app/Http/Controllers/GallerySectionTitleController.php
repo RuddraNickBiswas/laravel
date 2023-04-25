@@ -7,59 +7,36 @@ use Illuminate\Http\Request;
 
 class GallerySectionTitleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function edit()
     {
-        //
+
+        $galleryTitle = GallerySectionTitle::find(1);
+
+        return view('admin.frontend.gallery.gallery_title_edit', compact('galleryTitle'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $eventTitle = GallerySectionTitle::findOrFail($id);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(GallerySectionTitle $gallerySectionTitle)
-    {
-        //
-    }
+        $request->validate([
+            'title_first' => 'required|string|max:255',
+            'title_last' => 'required|string|max:255',
+            'description' => 'required|string',
+            'visibility' => 'required|boolean',
+        ]);
+        $eventTitle->update([
+            'title_first' => $request->title_first,
+            'title_last' => $request->title_last,
+            'description' => $request->description,
+            'visibility' => $request->visibility,
+        ]);
+        $notification = array(
+            'message' => 'Gallery Main Title Updated Sueecssfully',
+            'alert-type' => 'success'
+        );
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(GallerySectionTitle $gallerySectionTitle)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, GallerySectionTitle $gallerySectionTitle)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(GallerySectionTitle $gallerySectionTitle)
-    {
-        //
+        return redirect()->back()->with($notification);
     }
 }

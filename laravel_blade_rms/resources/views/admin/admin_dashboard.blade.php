@@ -28,7 +28,13 @@
     {{-- Toster CSS --}}
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
 
-    
+
+    {{-- Fancy FIle Uploader  --}}
+
+    {{-- <link href="{{ asset('backend/assets/plugins/fancy-file-uploader/fancy_fileupload.css') }}" rel="stylesheet" /> --}}
+
+    {{-- Image UplodyFy   --}}
+    <link href="{{ asset('backend/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.css') }}" rel="stylesheet" />
 
     <title>Admin Dashboard</title>
 </head>
@@ -80,7 +86,7 @@
             $(".knob").knob();
         });
     </script>
-    <script src="{{ asset('backend/assets/js/index.js') }}"></script>
+    {{-- <script src="{{ asset('backend/assets/js/index.js') }}"></script> --}}
     <!--app JS-->
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
 
@@ -114,17 +120,83 @@
     </script>
 
     {{-- Image Shower Function --}}
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#image').change(function(e) {
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    $('#showImage').attr('src', e.target.result);
-                }
-                reader.readAsDataURL(e.target.files['0']);
-            });
+   <script type="text/javascript">
+    $(document).ready(function() {
+        $('#image').change(function(e) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                $('#showImage').attr('src', e.target.result).addClass('img-thumbnail mt-2').css({
+                    'max-height': '200px',
+                    'max-width': '200px'
+                });
+            }
+            reader.readAsDataURL(e.target.files['0']);
         });
+        
+        $('#multiple_image').change(function(e) {
+            var files = e.target.files;
+            var imgContainer = $('#showImages');
+            imgContainer.empty(); // Clear previous images from container
+
+            // Loop through all selected files and add their previews to the container
+            for(var i = 0; i < files.length; i++) {
+                var reader = new FileReader();
+                reader.onload = (function(file) {
+                    return function(e) {
+                        var img = $('<img>').addClass('img-thumbnail mr-2 mb-2').attr({
+                            'src': e.target.result,
+                            'style': 'max-height: 200px; max-width: 200px;'
+                        });
+                        imgContainer.append(img);
+                    };
+                })(files[i]);
+                reader.readAsDataURL(files[i]);
+            }
+        });
+    });
+</script>
+
+
+
+
+
+    {{-- Show multiple image --}}
+
+
+
+    {{-- Fancy File Uploader  --}}
+
+    {{-- 
+	<script src="{{ asset('backend/assets/plugins/fancy-file-uploader/jquery.ui.widget.js') }}"></script>
+	<script src="{{ asset('backend/assets/plugins/fancy-file-uploader/jquery.fileupload.js') }}"></script>
+	<script src="{{ asset('backend/assets/plugins/fancy-file-uploader/jquery.iframe-transport.js') }}"></script>
+	<script src="{{ asset('backend/assets/plugins/fancy-file-uploader/jquery.fancy-fileupload.js') }}"></script>
+	<script src="{{ asset('backend/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.js') }}"></script>
+	<script>
+		$('#fancy-file-upload').FancyFileUpload({
+			params: {
+				action: 'fileuploader',
+                preventUnload: false,
+			},
+			maxfilesize: 1000000,
+		});
+	</script> --}}
+
+
+
+
+
+    {{-- image Uplody fy --}}
+    <script src={{ asset('backend/assets/plugins/Drag-And-Drop/dist/imageuploadify.min.js') }}></script>
+    <script>
+        $(document).ready(function() {
+            $('#image-uploadify').imageuploadify();
+        })
     </script>
+    {{-- ----- --}}
+
+
+
 </body>
 
 </html>

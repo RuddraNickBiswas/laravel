@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventSectionController;
 use App\Http\Controllers\EventSectionTitleController;
+use App\Http\Controllers\GallerySectionController;
 use App\Http\Controllers\GallerySectionTitleController;
 use App\Http\Controllers\HeroSectionController;
 use App\Http\Controllers\HomeController;
@@ -153,6 +154,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
 
+    // SPECIAL SECTION
+
+
     Route::controller(SpecialSectionTitleController::class)->prefix('dashboard')->group(function () {
 
         Route::get('/fn/sepcial/title', 'edit')->name('fn.special_title.edit');
@@ -167,6 +171,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
 
+    // END SPECIAL SECTION
+
+
+    // EVENT SECTION
+
     Route::controller(EventSectionTitleController::class)->prefix('dashboard')->group(function () {
 
         Route::get('/fn/event/title', 'edit')->name('fn.event_title.edit');
@@ -180,7 +189,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::resource('event', EventSectionController::class);
     });
 
+    // END EVENT SECTION
 
+
+    // GALLERY SECTION 
 
     Route::controller(GallerySectionTitleController::class)->prefix('dashboard')->group(function () {
 
@@ -188,6 +200,17 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
         Route::patch('/fn/gallery/title/{id}', 'update')->name('fn.gallery_title.update');
     });
+
+
+
+    Route::prefix('dashboard/fn')->name('fn.')->group(function () {
+
+        Route::resource('gallery', GallerySectionController::class);
+    });
+
+
+    // END GALLERY SECTION
+
 });
 
 Route::controller(AdminController::class)->group(function () {

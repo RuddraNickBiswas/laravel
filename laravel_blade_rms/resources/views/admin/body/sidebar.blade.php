@@ -152,13 +152,13 @@
                  <div class="menu-title">gallery section</div>
              </a>
              <ul>
-                 <li> <a href="{{ route('fn.event_title.edit') }}"><i class="bx bx-right-arrow-alt"></i>main title
+                 <li> <a href="{{ route('fn.gallery_title.edit') }}"><i class="bx bx-right-arrow-alt"></i>main title
                          edit</a>
                  </li>
-                 <li> <a href="{{ route('fn.event.index') }}"><i class="bx bx-right-arrow-alt"></i>all events</a>
+                 <li> <a href="{{ route('fn.gallery.index') }}"><i class="bx bx-right-arrow-alt"></i>all gallery</a>
                  </li>
 
-                 <li> <a href="{{ route('fn.event.create') }}"><i class="bx bx-right-arrow-alt"></i> event
+                 <li> <a href="{{ route('fn.gallery.create') }}"><i class="bx bx-right-arrow-alt"></i> gallery
                          create</a>
                  </li>
              </ul>

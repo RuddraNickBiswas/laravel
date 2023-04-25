@@ -23,12 +23,12 @@ class DatabaseSeeder extends Seeder
         $this->call(WhyUsSectionSeeder::class);
 
 
-        
+
         $this->call(MenuSectionTitleSeeder::class);
 
         $this->call(MenuTypeSeeder::class);
         $this->call(MenuItemsSeeder::class);
-        
+
 
         $this->call(SpecialSectionTitleSeeder::class);
         $this->call(SpecialSectionSeeder::class);
@@ -42,6 +42,6 @@ class DatabaseSeeder extends Seeder
 
 
         $this->call(GallerySectionTitleSeeder::class);
-        
+        $this->call(GallerySectionSeeder::class);
     }
 }
