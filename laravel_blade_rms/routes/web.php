@@ -16,6 +16,7 @@ use App\Http\Controllers\MenuTypeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SpecialSectionController;
 use App\Http\Controllers\SpecialSectionTitleController;
+use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\TopBarController;
 use App\Http\Controllers\WhyUsSectionController;
 use App\Http\Controllers\WhyUsSectionTitleController;
@@ -230,6 +231,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
     // END CHEFS SECTION
+
+
+    // TESTIMONIAL SECTION
+
+    Route::prefix('dashboard/fn')->name('fn.')->group(function () {
+
+        Route::resource('testimonials', TestimonialController::class);
+    });
+
+    // END TESTIMONIAL
 
 });
 

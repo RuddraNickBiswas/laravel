@@ -185,6 +185,25 @@
              </ul>
          </li>
 
+
+
+     <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon">
+                     <i class="fadeIn animated bx bx-calendar-star"></i>
+                 </div>
+                 <div class="menu-title">testimonial section</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('fn.testimonials.index') }}"><i class="bx bx-right-arrow-alt"></i>all testimonials</a>
+                 </li>
+
+                 <li> <a href="{{ route('fn.testimonials.create') }}"><i class="bx bx-right-arrow-alt"></i> testimonial
+                         create</a>
+                 </li>
+             </ul>
+         </li>
+
      </ul>
      <!--end navigation-->
  </div>

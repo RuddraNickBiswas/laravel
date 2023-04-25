@@ -34,21 +34,21 @@ class TestimonialSeeder extends Seeder
                 'post' => 'Store Owner',
                 'description' => ' Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.',
                 'image' => 'frontend/assets/img/testimonials/testimonials-3.jpg',
-                'rating' => '5',
+                'rating' => '2',
             ],
             [
                 'name' => 'Matt Brandon',
                 'post' => 'Freelancer',
                 'description' => ' Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.',
                 'image' => 'frontend/assets/img/testimonials/testimonials-4.jpg',
-                'rating' => '5',
+                'rating' => '3',
             ],
             [
                 'name' => 'John Larson',
                 'post' => 'Entrepreneur',
                 'description' => ' Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.',
                 'image' => 'frontend/assets/img/testimonials/testimonials-5.jpg',
-                'rating' => '5',
+                'rating' => '4',
             ],
         ];
 

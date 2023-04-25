@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('image');
             $table->integer('rating');
+            $table->boolean('visibility')->default(true);
             $table->timestamps();
         });
     }
