@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Http\Controllers\FooterSectionController;
 use App\Models\Chefs;
 use App\Models\ContactSectionTitle;
 use App\Models\Testimonial;
@@ -42,6 +43,10 @@ class DatabaseSeeder extends Seeder
 
 
 
+        $this->call(BookTableSectionTitleSeeder::class);
+
+
+
         $this->call(GallerySectionTitleSeeder::class);
         $this->call(GallerySectionSeeder::class);
 
@@ -58,5 +63,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(ContactSectionTitleSeeder::class);
         $this->call(ContactSectionSeeder::class);
+
+
+
+        $this->call(FooterSectionSeeder::class);
     }
 }

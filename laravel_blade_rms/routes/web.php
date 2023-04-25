@@ -8,6 +8,7 @@ use App\Http\Controllers\ContactSectionController;
 use App\Http\Controllers\ContactSectionTitleController;
 use App\Http\Controllers\EventSectionController;
 use App\Http\Controllers\EventSectionTitleController;
+use App\Http\Controllers\FooterSectionController;
 use App\Http\Controllers\GallerySectionController;
 use App\Http\Controllers\GallerySectionTitleController;
 use App\Http\Controllers\HeroSectionController;
@@ -197,6 +198,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // END EVENT SECTION
 
+   // BOOK TABLE SECTION
+
+    Route::controller(BookTableSectionTitleController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/book_table/title', 'edit')->name('fn.book_table_title.edit');
+
+        Route::patch('/fn/book_table/title/{id}', 'update')->name('fn.book_table_title.update');
+    });
+
+
+
+    // END BOOK TABLE SECTION
 
     // GALLERY SECTION 
 
@@ -262,6 +275,17 @@ Route::prefix('dashboard/fn')->name('fn.')->group(function () {
 
     // END CONTACT SECTION
 
+
+    // FOOTER SECTION
+
+    Route::controller(FooterSectionController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/footer/edit', 'edit')->name('fn.footer.edit');
+
+        Route::patch('/fn/footer/update/{id}', 'update')->name('fn.footer.update');
+    });
+
+    // END FOOTER SECTION
 });
 
 Route::controller(AdminController::class)->group(function () {
