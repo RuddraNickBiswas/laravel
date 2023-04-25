@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ChefsController;
+use App\Http\Controllers\ChefsSectionTitleController;
 use App\Http\Controllers\EventSectionController;
 use App\Http\Controllers\EventSectionTitleController;
 use App\Http\Controllers\GallerySectionController;
@@ -17,6 +19,7 @@ use App\Http\Controllers\SpecialSectionTitleController;
 use App\Http\Controllers\TopBarController;
 use App\Http\Controllers\WhyUsSectionController;
 use App\Http\Controllers\WhyUsSectionTitleController;
+use App\Models\ChefsSectionTitle;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -210,6 +213,23 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
 
     // END GALLERY SECTION
+
+
+    // CHEFS SECTION 
+    Route::controller(ChefsSectionTitleController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/chefs/title', 'edit')->name('fn.chefs_title.edit');
+
+        Route::patch('/fn/chefs/title/{id}', 'update')->name('fn.chefs_title.update');
+    });
+
+
+    Route::prefix('dashboard/fn')->name('fn.')->group(function () {
+
+        Route::resource('chefs', ChefsController::class);
+    });
+
+    // END CHEFS SECTION
 
 });
 

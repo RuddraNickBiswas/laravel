@@ -164,6 +164,27 @@
              </ul>
          </li>
 
+
+     <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon">
+                     <i class="fadeIn animated bx bx-calendar-star"></i>
+                 </div>
+                 <div class="menu-title">chefs section</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('fn.chefs_title.edit') }}"><i class="bx bx-right-arrow-alt"></i>main title
+                         edit</a>
+                 </li>
+                 <li> <a href="{{ route('fn.chefs.index') }}"><i class="bx bx-right-arrow-alt"></i>all chefs</a>
+                 </li>
+
+                 <li> <a href="{{ route('fn.chefs.create') }}"><i class="bx bx-right-arrow-alt"></i> chefs
+                         create</a>
+                 </li>
+             </ul>
+         </li>
+
      </ul>
      <!--end navigation-->
  </div>

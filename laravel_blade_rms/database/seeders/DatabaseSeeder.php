@@ -2,8 +2,8 @@
 
 namespace Database\Seeders;
 
-
-
+use App\Models\Chefs;
+use App\Models\Testimonial;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -43,5 +43,14 @@ class DatabaseSeeder extends Seeder
 
         $this->call(GallerySectionTitleSeeder::class);
         $this->call(GallerySectionSeeder::class);
+
+
+
+        $this->call(ChefsSectionTitleSeeder::class);
+        $this->call(ChefsSeeder::class);
+
+
+
+        $this->call(TestimonialSeeder::class);
     }
 }
