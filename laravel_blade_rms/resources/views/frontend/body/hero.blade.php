@@ -3,7 +3,7 @@
     
     $heroSection = HeroSection::where('visibility', true)->get();
     
-	$user = Auth::user();
+	// $user = Auth::user();
 @endphp
 <section id="hero">
     <div class="hero-container">
@@ -21,7 +21,7 @@
                         <div class="carousel-container">
                             <div class="carousel-content">
                                 @if ($section->id == 1)
-                                    <h2 class="animate__animated animate__fadeInDown"><span>{{$user->app_name}}</span> Restaurant</h2>
+                                    <h2 class="animate__animated animate__fadeInDown"><span> Delicious </span> Restaurant</h2>
                                 @else
                                     <h2 class="animate__animated animate__fadeInDown">{{ $section->title }}</h2>
                                 @endif

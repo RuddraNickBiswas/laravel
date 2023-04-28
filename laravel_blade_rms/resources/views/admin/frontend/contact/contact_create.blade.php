@@ -99,7 +99,7 @@
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Update About') }}
+                                        {{ __('Create Contact') }}
                                     </button>
                                 </div>
                         </div>

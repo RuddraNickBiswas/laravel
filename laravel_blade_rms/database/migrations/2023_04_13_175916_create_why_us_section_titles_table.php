@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('title_colored');
             $table->text('description');
+            $table->boolean('visibility')->default(true);
             $table->timestamps();
         });
     }

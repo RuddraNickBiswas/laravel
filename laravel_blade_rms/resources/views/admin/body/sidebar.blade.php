@@ -147,7 +147,25 @@
          <li>
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon">
-                     <i class="fadeIn animated bx bx-calendar-star"></i>
+                     <i class="lni lni-bookmark"></i>
+                 </div>
+                 <div class="menu-title">book table section</div>
+             </a>
+             <ul>
+                 <li> <a href="{{ route('fn.book_table_title.edit') }}"><i class="bx bx-right-arrow-alt"></i>main title
+                         edit</a>
+                 </li>
+
+                 <li> <a href="{{ route('fn.book_table.index') }}"><i class="bx bx-right-arrow-alt"></i>book table
+                         request</a>
+                 </li>
+             </ul>
+         </li>
+
+         <li>
+             <a href="javascript:;" class="has-arrow">
+                 <div class="parent-icon">
+                     <i class="lni lni-gallery"></i>
                  </div>
                  <div class="menu-title">gallery section</div>
              </a>
@@ -168,7 +186,7 @@
          <li>
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon">
-                     <i class="fadeIn animated bx bx-calendar-star"></i>
+                     <i class="lni lni-crown"></i>
                  </div>
                  <div class="menu-title">chefs section</div>
              </a>
@@ -190,7 +208,7 @@
          <li>
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon">
-                     <i class="fadeIn animated bx bx-calendar-star"></i>
+                     <i class="lni lni-star-half"></i>
                  </div>
                  <div class="menu-title">testimonial section</div>
              </a>
@@ -209,7 +227,7 @@
          <li>
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon">
-                     <i class="fadeIn animated bx bx-calendar-star"></i>
+                     <i class="lni lni-pencil-alt"></i>
                  </div>
                  <div class="menu-title">contact section</div>
              </a>
@@ -223,6 +241,8 @@
                  <li> <a href="{{ route('fn.contact.create') }}"><i class="bx bx-right-arrow-alt"></i> contact
                          create</a>
                  </li>
+                 <li> <a href="{{ route('fn.contact_message.index') }}"><i class="bx bx-right-arrow-alt"></i>Contact Message</a>
+                 </li>
              </ul>
          </li>
 
@@ -231,7 +251,7 @@
          <li>
              <a href="javascript:;" class="has-arrow">
                  <div class="parent-icon">
-                     <i class="fadeIn animated bx bx-calendar-star"></i>
+                     <i class="lni lni-checkmark-circle"></i>
                  </div>
                  <div class="menu-title">Footer section</div>
              </a>

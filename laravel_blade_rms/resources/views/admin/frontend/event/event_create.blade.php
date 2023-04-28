@@ -4,7 +4,7 @@
     <div class="m-4">
         <div class="row">
             <div class="col-md-12 mt-4">
-                <h6 class="mb-0 text-uppercase">Edit Event Section</h6>
+                <h6 class="mb-0 text-uppercase"> Create Event </h6>
                 <hr>
                 <div class="card border rounded">
 
@@ -199,7 +199,7 @@
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Update About') }}
+                                        {{ __('Create Event') }}
                                     </button>
                                 </div>
                         </div>

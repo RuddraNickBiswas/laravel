@@ -96,7 +96,7 @@
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Update Menu Main Title') }}
+                                        {{ __('Update Special Section Title') }}
                                     </button>
                                 </div>
                         </div>

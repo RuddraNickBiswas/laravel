@@ -20,7 +20,7 @@
                             <tbody>
                                 @foreach ($whyUs as $section)
                                     <tr>
-                                        <th scope="row">{{ $section->id }}</th>
+                                       <th scope="row">{{ $loop->iteration }}</th>
                                        
                                         <td>{{ $section->title }}</td>
                                         <td>{{ $section->description }}</td>

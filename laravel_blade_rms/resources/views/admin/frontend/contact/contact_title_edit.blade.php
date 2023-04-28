@@ -113,7 +113,7 @@
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Update Menu Main Title') }}
+                                        {{ __('Update Contact Title') }}
                                     </button>
                                 </div>
                         </div>

@@ -4,6 +4,8 @@
     <div class="m-4">
         <div class="row">
             <div class="col-md-12 mt-4">
+                <h6 class="mb-0 text-uppercase">Chefs All Section</h6>
+                <hr>
                 <div class="card">
                     <div class="card-body">
                         <table class="table table-bordered mb-0">
@@ -18,7 +20,7 @@
                             <tbody>
                                 @foreach ($chefs as $section)
                                     <tr>
-                                        <th scope="row">{{ $section->id }}</th>
+                                        <th scope="row">{{ $loop->iteration }}</th>
                                         <td><img src=" {{ asset($section->image) }} " alt="{{ $section->title }}"
                                                 width="80" height="80">
                                         </td>

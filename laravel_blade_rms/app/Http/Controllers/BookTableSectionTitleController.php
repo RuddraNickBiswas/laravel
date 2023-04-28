@@ -7,59 +7,36 @@ use Illuminate\Http\Request;
 
 class BookTableSectionTitleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    public function edit()
     {
-        //
+
+        $bookTableTitle = BookTableSectionTitle::find(1);
+
+        return view('admin.frontend.book_table.book_table_title_edit', compact('bookTableTitle'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $bookTableTitle = BookTableSectionTitle::findOrFail($id);
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(BookTableSectionTitle $bookTableSectionTitle)
-    {
-        //
-    }
+        $request->validate([
+            'title_first' => 'required|string|max:255',
+            'title_last' => 'required|string|max:255',
+            'description' => 'required|string',
+            'visibility' => 'required|boolean',
+        ]);
+        $bookTableTitle->update([
+            'title_first' => $request->title_first,
+            'title_last' => $request->title_last,
+            'description' => $request->description,
+            'visibility' => $request->visibility,
+        ]);
+        $notification = array(
+            'message' => 'Book Table Main Title Updated Sueecssfully',
+            'alert-type' => 'success'
+        );
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(BookTableSectionTitle $bookTableSectionTitle)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, BookTableSectionTitle $bookTableSectionTitle)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(BookTableSectionTitle $bookTableSectionTitle)
-    {
-        //
+        return redirect()->back()->with($notification);
     }
 }

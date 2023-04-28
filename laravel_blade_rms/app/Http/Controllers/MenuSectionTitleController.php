@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class MenuSectionTitleController extends Controller
 {
-     public function edit()
+    public function edit()
     {
 
         $menuTitle = MenuSectionTitle::find(1);
@@ -24,11 +24,13 @@ class MenuSectionTitleController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'title_colored' => 'required|string|max:255',
-            
+            'visibility' => 'required|boolean',
+
         ]);
         $menuTitle->update([
             'title' => $request->title,
             'title_colored' => $request->title_colored,
+            'visibility' => $request->visibility,
         ]);
         $notification = array(
             'message' => 'Menu Main Title Updated Sueecssfully',

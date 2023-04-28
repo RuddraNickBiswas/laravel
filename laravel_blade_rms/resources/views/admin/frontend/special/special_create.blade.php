@@ -4,7 +4,7 @@
     <div class="m-4">
         <div class="row">
             <div class="col-md-12 mt-4">
-                <h6 class="mb-0 text-uppercase">Edit About Section</h6>
+                <h6 class="mb-0 text-uppercase">Create Spectial Section</h6>
                 <hr>
                 <div class="card border rounded">
 

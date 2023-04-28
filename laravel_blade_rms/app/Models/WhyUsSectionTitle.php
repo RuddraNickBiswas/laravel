@@ -13,5 +13,6 @@ class WhyUsSectionTitle extends Model
         'title',
         'title_colored',
         'description',
+        'visibility',
     ];
 }

@@ -31,15 +31,12 @@
     <!-- Template Main CSS File -->
     <link href="{{ asset('frontend/assets/css/style.css') }}" rel="stylesheet">
 
-    <!-- =======================================================
-  * Template Name: Delicious
-  * Updated: Mar 10 2023 with Bootstrap v5.2.3
-  * Template URL: https://bootstrapmade.com/delicious-free-restaurant-bootstrap-theme/
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
 
-   
+       {{-- Toster CSS --}}
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
+
+
 </head>
 
 <body>
@@ -50,10 +47,41 @@
     <script src="{{ asset('frontend/assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
     <script src="{{ asset('frontend/assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
-    <script src="{{ asset('frontend/assets/vendor/php-email-form/validate.js') }}"></script>
+    {{-- <script src="{{ asset('frontend/assets/vendor/php-email-form/validate.js') }}"></script> --}}
 
     <!-- Template Main JS File -->
     <script src="{{ asset('frontend/assets/js/main.js') }}"></script>
+
+
+
+
+    {{-- toster --}}
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        @if (Session::has('message'))
+            var type = "{{ Session::get('alert-type', 'info') }}"
+            switch (type) {
+                case 'info':
+                    toastr.info(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'success':
+                    toastr.success(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'warning':
+                    toastr.warning(" {{ Session::get('message') }} ");
+                    break;
+
+                case 'error':
+                    toastr.error(" {{ Session::get('message') }} ");
+                    break;
+            }
+        @endif
+    </script>
 
 </body>
 

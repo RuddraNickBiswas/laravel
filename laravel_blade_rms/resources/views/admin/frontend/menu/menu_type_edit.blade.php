@@ -57,7 +57,7 @@
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Create Menu Types') }}
+                                        {{ __('Update Menu Types') }}
                                     </button>
                                 </div>
                         </div>

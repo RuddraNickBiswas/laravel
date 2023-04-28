@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\AboutSectionController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BookTableController;
+use App\Http\Controllers\BookTableSectionTitleController;
 use App\Http\Controllers\ChefsController;
 use App\Http\Controllers\ChefsSectionTitleController;
+use App\Http\Controllers\ContactMessageController;
 use App\Http\Controllers\ContactSectionController;
 use App\Http\Controllers\ContactSectionTitleController;
 use App\Http\Controllers\EventSectionController;
@@ -198,7 +201,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // END EVENT SECTION
 
-   // BOOK TABLE SECTION
+    // BOOK TABLE SECTION
 
     Route::controller(BookTableSectionTitleController::class)->prefix('dashboard')->group(function () {
 
@@ -207,6 +210,16 @@ Route::middleware(['auth', 'verified'])->group(function () {
         Route::patch('/fn/book_table/title/{id}', 'update')->name('fn.book_table_title.update');
     });
 
+    Route::controller(BookTableController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/book_table', 'index')->name('fn.book_table.index');
+
+        Route::get('/fn/book_table/{id}', 'edit')->name('fn.book_table.edit');
+
+        Route::patch('/fn/book_table/{id}', 'update')->name('fn.book_table.update');
+
+        Route::delete('/fn/book_table/{id}', 'destroy')->name('fn.book_table.destroy');
+    });
 
 
     // END BOOK TABLE SECTION
@@ -268,9 +281,21 @@ Route::middleware(['auth', 'verified'])->group(function () {
     });
 
 
-Route::prefix('dashboard/fn')->name('fn.')->group(function () {
+    Route::prefix('dashboard/fn')->name('fn.')->group(function () {
 
         Route::resource('contact', ContactSectionController::class);
+    });
+
+
+    Route::controller(ContactMessageController::class)->prefix('dashboard')->group(function () {
+
+        Route::get('/fn/contact_message', 'index')->name('fn.contact_message.index');
+
+        Route::get('/fn/contact_message/{id}', 'edit')->name('fn.contact_message.edit');
+
+        Route::patch('/fn/contact_message/{id}', 'update')->name('fn.contact_message.update');
+
+        Route::delete('/fn/contact_message/{id}', 'destroy')->name('fn.contact_message.destroy');
     });
 
     // END CONTACT SECTION
@@ -295,8 +320,17 @@ Route::controller(AdminController::class)->group(function () {
     Route::get('admin/register', 'register')->name('admin.register');
 });
 
+// Route::prefix('dashboard/fn')->name('fn.')->group(function () {
 
+//     Route::resource('book_table', BookTableController::class);
+// });
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::post('book_table', [BookTableController::class, 'store'])->name('fn.book_table.store');
+
+Route::post('contact_message', [ContactMessageController::class, 'store'])->name('fn.contact_message.store');
+
+
 
 // Route::get('/admin/login',[AdminController::class, 'login'])->name('admin.login');
 require __DIR__ . '/auth.php';

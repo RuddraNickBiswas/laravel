@@ -4,6 +4,8 @@
     <div class="m-4">
         <div class="row">
             <div class="col-md-12 mt-4">
+                <h6 class="mb-0 text-uppercase">Event All Section</h6>
+                <hr>
                 <div class="card">
                     <div class="card-body">
                         <table class="table table-bordered mb-0">
@@ -18,7 +20,7 @@
                             <tbody>
                                 @foreach ($events as $section)
                                     <tr>
-                                        <th scope="row">{{ $section->id }}</th>
+                                        <th scope="row">{{ $loop->iteration }}</th>
                                         <td><img src=" {{ asset($section->image) }} " alt="{{ $section->title }}"
                                                 width="80" height="80">
                                         </td>
@@ -26,8 +28,8 @@
                                         <td>{{ $section->title }}</td>
 
                                         <td class="d-flex align-items-center">
-                                            <a href="{{ route('fn.event.edit', $section->id) }}" class="btn btn-info mr-4"><i
-                                                    class="fadeIn animated bx bx-edit-alt"></i></a>
+                                            <a href="{{ route('fn.event.edit', $section->id) }}"
+                                                class="btn btn-info mr-4"><i class="fadeIn animated bx bx-edit-alt"></i></a>
                                             <div class="p-1"></div>
                                             <form action="{{ route('fn.event.destroy', $section->id) }}" method="POST">
                                                 @csrf

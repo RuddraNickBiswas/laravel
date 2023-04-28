@@ -4,7 +4,7 @@
     <div class="m-4">
         <div class="row">
             <div class="col-md-12 mt-4">
-                <h6 class="mb-0 text-uppercase">Create Hero Section</h6>
+                <h6 class="mb-0 text-uppercase">Edit Menu Item</h6>
                 <hr>
                 <div class="card border rounded">
                     <div class="card-body">
@@ -103,7 +103,7 @@
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Create Slider') }}
+                                        {{ __('Update Menu Item') }}
                                     </button>
                                 </div>
                         </div>

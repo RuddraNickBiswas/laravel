@@ -4,7 +4,7 @@
     <div class="m-4">
         <div class="row">
             <div class="col-md-12 mt-4">
-                <h6 class="mb-0 text-uppercase">Edit Special Section title</h6>
+                <h6 class="mb-0 text-uppercase">Edit Event Title</h6>
                 <hr>
                 <div class="card border rounded">
 
@@ -94,7 +94,7 @@
 
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Update Menu Main Title') }}
+                                        {{ __('Update Event Title') }}
                                     </button>
                                 </div>
                         </div>

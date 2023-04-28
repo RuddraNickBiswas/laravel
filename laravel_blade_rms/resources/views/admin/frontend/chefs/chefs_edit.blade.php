@@ -184,7 +184,7 @@
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('Update About') }}
+                                        {{ __('Update Chefs') }}
                                     </button>
                                 </div>
                         </div>

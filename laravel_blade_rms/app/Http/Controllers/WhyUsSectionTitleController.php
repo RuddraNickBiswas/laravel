@@ -22,12 +22,14 @@ class WhyUsSectionTitleController extends Controller
             'title' => 'required|string|max:255',
             'title_colored' => 'required|string|max:255',
             'description' => 'required|string',
+            'visibility' => 'required|boolean',
         ]);
 
         $whyUsTitle->update([
             'title' => $request->title,
             'title_colored' => $request->title_colored,
             'description' => $request->description,
+            'visibility' => $request->visibility,
         ]);
         $notification = array(
             'message' => 'Why Is Title Updated Sueecssfully',
